@@ -4,10 +4,6 @@ on:
   push:
     branches:
       - main
-      
-env: 
-  PORT: ${{secrets.PORT}} 
-  API_SERVICE_URL: ${{secrets.API_SERVICE_URL}} 
 
 jobs:
   deploy:
