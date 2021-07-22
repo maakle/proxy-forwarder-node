@@ -7,7 +7,6 @@ on:
 
 jobs:
   deploy:
-    environment: production
     runs-on: ubuntu-latest
     steps:
     - name: SSH and deploy server
@@ -16,6 +15,10 @@ jobs:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_KEY }}
+        
+        env:
+          PORT: ${{ secrets.PORT }}
+          API_SERVICE_URL: ${{ secrets.API_SERVICE_URL }}
         
         script: |
           cd ~/proxy-forwarder-node
