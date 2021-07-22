@@ -22,15 +22,15 @@ jobs:
           cd ~/proxy-forwarder-node
 
     - name: Install Dependencies
-          run: |
-            npm install 
+        run: |
+          npm install 
 
     - name: Set Env Variables
-          run: |
-            touch .env
-            echo PORT =${{ secrets.PORT }} >> .env
-            echo API_SERVICE_URL =${{ secrets.API_SERVICE_URL }} >> .env
+        run: |
+          touch .env
+          echo PORT =${{ secrets.PORT }} >> .env
+          echo API_SERVICE_URL =${{ secrets.API_SERVICE_URL }} >> .env
     
     - name: Start Application
-          run: |
-            npm start
+        run: |
+          npm start
