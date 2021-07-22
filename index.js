@@ -19,8 +19,10 @@ app.use(
 );
 
 // Start the Proxy
-app.listen(process.env.PORT, () => {
+const port = process.env.PORT || 5000;
+
+app.listen(port, () => {
   console.log(
-    `Starting proxy on port: ${process.env.PORT} and forwarding to ${process.env.API_SERVICE_URL}`
+    `Starting proxy on port: ${port} and forwarding to ${process.env.API_SERVICE_URL}`
   );
 });
