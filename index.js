@@ -6,6 +6,9 @@ const { createProxyMiddleware } = require("http-proxy-middleware");
 // Create Express Server
 const app = express();
 
+const PORT = 3000;
+const API_SERVICE_URL = "https://jsonplaceholder.typicode.com";
+
 // Logging
 app.use(morgan("dev"));
 
@@ -20,5 +23,7 @@ app.use(
 
 // Start the Proxy
 app.listen(PORT, () => {
-  console.log(`Starting Proxy on port: ${PORT}`);
+  console.log(
+    `Starting proxy on port: ${PORT} and forwarding to ${API_SERVICE_URL}`
+  );
 });
