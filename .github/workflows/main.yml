@@ -23,4 +23,4 @@ jobs:
           touch .env
           echo PORT =${{ secrets.PORT }} >> .env
           echo API_SERVICE_URL =${{ secrets.API_SERVICE_URL }} >> .env
-          npm start
+          pm2 restart node-app
