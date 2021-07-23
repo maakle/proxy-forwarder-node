@@ -17,9 +17,8 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         
         script: |
-          rm -rf ~/proxy-forwarder-node
-          git clone git@github.com:mathiasklenk/proxy-forwarder-node.git
           cd ~/proxy-forwarder-node
+          git pull
           npm install 
           touch .env
           echo PORT =${{ secrets.PORT }} >> .env
