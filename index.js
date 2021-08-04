@@ -15,6 +15,9 @@ app.use(
   createProxyMiddleware({
     target: process.env.API_SERVICE_URL,
     changeOrigin: true,
+    pathRewrite: {
+      "^/test": "/",
+    },
   })
 );
 
@@ -23,6 +26,9 @@ app.use(
   createProxyMiddleware({
     target: process.env.LOGIN_API_URL,
     changeOrigin: true,
+    pathRewrite: {
+      "^/login": "/",
+    },
   })
 );
 
