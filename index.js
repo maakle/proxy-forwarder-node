@@ -11,6 +11,14 @@ app.use(morgan("dev"));
 
 // Proxy endpoints
 app.use(
+  "/test",
+  createProxyMiddleware({
+    target: process.env.API_SERVICE_URL,
+    changeOrigin: true,
+  })
+);
+
+app.use(
   "/login",
   createProxyMiddleware({
     target: process.env.LOGIN_API_URL,
