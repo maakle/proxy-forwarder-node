@@ -33,10 +33,13 @@ app.use(
 );
 
 app.use(
-  "/",
+  "/search",
   createProxyMiddleware({
     target: process.env.SEARCH_API_URL,
     changeOrigin: true,
+    pathRewrite: {
+      "^/search": "/",
+    },
   })
 );
 
