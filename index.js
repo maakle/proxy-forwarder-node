@@ -11,9 +11,17 @@ app.use(morgan("dev"));
 
 // Proxy endpoints
 app.use(
+  "/login",
+  createProxyMiddleware({
+    target: process.env.LOGIN_API_URL,
+    changeOrigin: true,
+  })
+);
+
+app.use(
   "/",
   createProxyMiddleware({
-    target: process.env.API_SERVICE_URL,
+    target: process.env.SEARCH_API_URL,
     changeOrigin: true,
   })
 );
@@ -23,6 +31,9 @@ const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
   console.log(
-    `Starting proxy on port: ${port} and forwarding to ${process.env.API_SERVICE_URL}`
+    `Starting /login route proxy on port: ${port} and forwarding to ${process.env.LOGIN_API_URL}`
+  );
+  console.log(
+    `Starting proxy on port: ${port} and forwarding to ${process.env.SEARCH_API_URL}`
   );
 });
